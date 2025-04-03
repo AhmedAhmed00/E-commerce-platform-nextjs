@@ -1,0 +1,18 @@
+fav icon file in the app directory to set the icon 
+لو حطيت حاجة جوا ملف البابليك ليا اكسيس عليها علي طول لما اجي احط السورس بتاعها
+Date().getFullYear returns current year
+
+
+DropdownMenuTrigger componet to trigger dropDown
+
+
+
+this is a common pattern to ensure to not render thing before mounting 
+ const [mounted,setMounted] = React.useState(false)
+  React.useEffect(()=>{ 
+    setMounted(true)
+  })
+  
+  if(!mounted)return null
+  
+  دا هيمنع اليوزر من انه يعمل اي ايفنت وهو الهيدريشن لسا محصلش  
