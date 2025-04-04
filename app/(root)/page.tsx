@@ -2,12 +2,15 @@
 
 
 import ProductList from "@/components/shared/product/product-list";
-import sampleData from "../data/sample-data"
+import { getLatestProds } from "@/lib/actions/product.action";
  
 export default async function page() {
   
-  console.log(sampleData);
+  
+  const data = await getLatestProds()
+  
+  
   return (
-    <ProductList data={sampleData} title={"Newst Arrivals"} />
+    <ProductList data={data} title={"Newst Arrivals"} />
   )
 }

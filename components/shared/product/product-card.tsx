@@ -3,36 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import ProductPrice from "./product-price";
+import { Product } from "@/types";
 
-export interface IProduct {
-  name: string;
-  slug: string;
-  category: string;
-  description: string;
-  images: Array<string>;
-  price: number;
-  brand: string;
-  rating: number;
-  numReviews: number;
-  stock: number;
-  isFeatured: boolean;
-  banner: string | null;
-}
 
-const ProductCard: FC<{ product: IProduct }> = ({ product }) => {
+
+const ProductCard: FC<{ product: Product }> = ({ product }) => {
   const {
-
     brand,
-
-
     images,
-
     name,
-
-
     rating,
-    slug,price
 
+    slug,
+    price,
   } = product;
 
   return (
@@ -48,17 +31,17 @@ const ProductCard: FC<{ product: IProduct }> = ({ product }) => {
         <Link href={slug}>
           <p className="mt-2">{name}</p>
         </Link>
-    
-        <div className="flex-between gap-4">
-            {rating} Stars
-        </div>
-        <div className="flex justify-between items-center">
-        {product.stock > 0 ? <p className="mt-2 text-">in the stock</p >:<p  className="mt-2 text-destructive">not in stock</p>}
-        
-        <ProductPrice value={Number(price)} className="text-red-200" />
-        </div>
 
-         
+        <div className="flex-between gap-4">{rating} Stars</div>
+        <div className="flex justify-between items-center">
+          {product.stock > 0 ? (
+            <p className="mt-2 text-">in the stock</p>
+          ) : (
+            <p className="mt-2 text-destructive">not in stock</p>
+          )}
+
+          <ProductPrice value={Number(price)} className="text-red-200" />
+        </div>
       </CardContent>
     </Card>
   );
