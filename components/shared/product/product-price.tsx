@@ -3,7 +3,7 @@ import { FC } from "react";
 
 interface IProductPriceProps {
   value: number;
-  className: string;
+  className?: string;
 }
 
 const ProductPrice: FC<IProductPriceProps> = ({ value, className }) => {
